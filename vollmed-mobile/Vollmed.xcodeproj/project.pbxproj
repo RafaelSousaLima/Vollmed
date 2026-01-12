@@ -18,9 +18,13 @@
 		48539DF42AB0F47D005BD7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48539DF32AB0F47D005BD7C9 /* Preview Assets.xcassets */; };
 		DD1BCC0C2DDF44AC00BB6362 /* ScheduleAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1BCC0B2DDF44AC00BB6362 /* ScheduleAppointmentView.swift */; };
 		DD1BCC132DDF55A800BB6362 /* ScheduleAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1BCC122DDF55A800BB6362 /* ScheduleAppointment.swift */; };
+		DD1D8A092E96AA9A009D70FA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D8A082E96AA9A009D70FA /* SignUpView.swift */; };
 		DD22958D2DF24ACC00AE2576 /* MyAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22958C2DF24ACC00AE2576 /* MyAppointmentView.swift */; };
 		DD5426E02DF3367700672F6E /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5426DF2DF3367700672F6E /* Appointment.swift */; };
 		DDB4CF5E2E05BDEF00FC40B6 /* CancelAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */; };
+		DDBA57302E96EC37007A13B4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBA572F2E96EC37007A13B4 /* InputView.swift */; };
+		DDBA57322E96F7B1007A13B4 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBA57312E96F7B1007A13B4 /* Patient.swift */; };
+		DDBAFBC42E61F2AE00FC5812 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBAFBC32E61F2AE00FC5812 /* SignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +40,13 @@
 		48539DF32AB0F47D005BD7C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD1BCC0B2DDF44AC00BB6362 /* ScheduleAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAppointmentView.swift; sourceTree = "<group>"; };
 		DD1BCC122DDF55A800BB6362 /* ScheduleAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAppointment.swift; sourceTree = "<group>"; };
+		DD1D8A082E96AA9A009D70FA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DD22958C2DF24ACC00AE2576 /* MyAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppointmentView.swift; sourceTree = "<group>"; };
 		DD5426DF2DF3367700672F6E /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAppointmentView.swift; sourceTree = "<group>"; };
+		DDBA572F2E96EC37007A13B4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		DDBA57312E96F7B1007A13B4 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		DDBAFBC32E61F2AE00FC5812 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -64,6 +72,8 @@
 				DD1BCC0B2DDF44AC00BB6362 /* ScheduleAppointmentView.swift */,
 				DD22958C2DF24ACC00AE2576 /* MyAppointmentView.swift */,
 				DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */,
+				DDBAFBC32E61F2AE00FC5812 /* SignInView.swift */,
+				DD1D8A082E96AA9A009D70FA /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -73,6 +83,7 @@
 			children = (
 				484BEF002AB0F6090033C07A /* ButtonView.swift */,
 				484BEF022AB0F7080033C07A /* SpecialistCardView.swift */,
+				DDBA572F2E96EC37007A13B4 /* InputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -83,6 +94,7 @@
 				484BEEFC2AB0F5750033C07A /* Specialist.swift */,
 				DD1BCC122DDF55A800BB6362 /* ScheduleAppointment.swift */,
 				DD5426DF2DF3367700672F6E /* Appointment.swift */,
+				DDBA57312E96F7B1007A13B4 /* Patient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,11 +225,15 @@
 				DD22958D2DF24ACC00AE2576 /* MyAppointmentView.swift in Sources */,
 				DDB4CF5E2E05BDEF00FC40B6 /* CancelAppointmentView.swift in Sources */,
 				484BEF052AB0F7970033C07A /* HomeView.swift in Sources */,
+				DDBA57302E96EC37007A13B4 /* InputView.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
+				DDBAFBC42E61F2AE00FC5812 /* SignInView.swift in Sources */,
+				DDBA57322E96F7B1007A13B4 /* Patient.swift in Sources */,
 				484BEF012AB0F6090033C07A /* ButtonView.swift in Sources */,
 				484BEF032AB0F7080033C07A /* SpecialistCardView.swift in Sources */,
 				484BEEFF2AB0F59D0033C07A /* WebService.swift in Sources */,
 				48539DED2AB0F47C005BD7C9 /* VollmedApp.swift in Sources */,
+				DD1D8A092E96AA9A009D70FA /* SignUpView.swift in Sources */,
 				DD1BCC0C2DDF44AC00BB6362 /* ScheduleAppointmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

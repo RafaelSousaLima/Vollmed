@@ -11,6 +11,22 @@ struct WebService {
     
     private let baseURL = "http://localhost:3000"
     
+    func registerPatient(patient: Patient) async throws -> Patient? {
+        let endpoint = "\(baseURL)/paciente"
+        let url = URLRequest(url: URL(string: endpoint)!)
+        
+        let jsonData = try JSONEncoder().encode(patient)
+        
+        var request = URLRequest(url: url.url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let patient = try JSONDecoder().decode(Patient.self, from: data)
+        return patient
+    }
+    
     let imageCache = NSCache<NSString, UIImage>()
     
     func getAllAppointmentFromPatient(patientId: String) async throws -> [Appointment]? {
