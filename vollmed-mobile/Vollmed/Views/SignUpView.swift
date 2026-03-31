@@ -40,7 +40,7 @@ struct SignUpView: View {
     }
     
     func registrer() async {
-        let patient = Patient(id: nil, name: name, cpf: cpf, email: email, password: password, phoneNumber: phoneNumber, healthPlan: chosenHealhPlan)
+        let patient = Patient(id: nil, cpf: cpf, name: name, email: email, password: password, phoneNumber: phoneNumber, healthPlan: chosenHealhPlan)
         do {
             if let _ = try await service.registerPatient(patient: patient) {
                 isPatientRegistered = true
@@ -48,6 +48,7 @@ struct SignUpView: View {
                 isPatientRegistered = false
             }
         } catch {
+            isPatientRegistered = false
             print("Ocorreu um erro ao cadastrar o paciente: \(error)")
         }
         showAlert = true
