@@ -11,6 +11,22 @@ struct SignInView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showAlert: Bool = false
+    
+    let service = WebService()
+    
+    func login() async {
+        do {
+            if let result = try await service.loginRequest(email: email, password: password) {
+                print(result)
+            } else {
+                showAlert = true
+            }
+        } catch {
+            showAlert = true
+            print("Ocorreu um erro no login: \(error)")
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16.0) {
@@ -46,7 +62,9 @@ struct SignInView: View {
                 .cornerRadius(14.0)
             
             Button(action: {
-                
+                Task {
+                    await login()
+                }
             }, label: {
                 ButtonView(text: "Login")
             })
@@ -59,11 +77,19 @@ struct SignInView: View {
                     .foregroundStyle(.accent)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
-            
-        }.padding()
+        }
+        .padding()
         .navigationBarBackButtonHidden()
+        .alert("Algo de errado!", isPresented: $showAlert) {
+            Button(action: {}, label: {
+                Text("Ok")
+            })
+        } message: {
+            Text("Houve um erro ao entrar na sua conta. Por favor tente novamente.")
+        }
     }
 }
+
 
 #Preview {
     SignInView()
