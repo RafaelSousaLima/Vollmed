@@ -9,7 +9,31 @@ import UIKit
 
 struct WebService {
     
+    let imageCache = NSCache<NSString, UIImage>()
+    
     private let baseURL = "http://localhost:3000"
+    
+    func logouPatient() async throws -> Bool {
+        let endpoint = "\(baseURL)/auth/logout"
+        let url = URLRequest(url: URL(string: endpoint)!)
+        
+        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+            print("Token não informado!!!")
+            return false
+        }
+        
+        var request = URLRequest(url: url.url!)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (_, response) = try await URLSession.shared.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse,
+           httpResponse.statusCode == 200 {
+            return true
+        }
+        return false
+    }
     
     func loginRequest(email: String, password: String) async throws -> LoginResponse? {
         let endpoint = "\(baseURL)/auth/login"
@@ -45,11 +69,21 @@ struct WebService {
         return patient
     }
     
-    let imageCache = NSCache<NSString, UIImage>()
-    
     func getAllAppointmentFromPatient(patientId: String) async throws -> [Appointment]? {
-        let url = URLRequest(url: URL(string: "\(baseURL)/paciente/\(patientId)/consultas")!)
-        let (data, _) = try await URLSession.shared.data(from: url.url!)
+        let endpoint = "\(baseURL)/paciente/\(patientId)/consultas"
+        
+        let urlRequest = URLRequest(url: URL(string: endpoint)!)
+        
+        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+            print("Token não informado!!!")
+            return nil
+        }
+        
+        var request = URLRequest(url: urlRequest.url!)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
         let appointments = try JSONDecoder().decode([Appointment].self, from: data)
         return appointments
     }
@@ -59,11 +93,17 @@ struct WebService {
         
         let url = URLRequest(url: URL(string: endpoint)!)
         
+        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+            print("Token não informado!!!")
+            return false
+        }
+        
         let jsonData = try JSONSerialization.data(withJSONObject: ["motivo_cancelamento": reasonToCancel])
         
         var request = URLRequest(url: url.url!)
         request.httpMethod = "DELETE"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = jsonData
         
         let (_, response) = try await URLSession.shared.data(for: request)
@@ -80,6 +120,11 @@ struct WebService {
         
         let url = URLRequest(url: URL(string: endpoint)!)
         
+        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+            print("Token não informado!!!")
+            return nil
+        }
+        
         let requestData: [String: String] = ["data": date]
         
         let jsonData = try JSONSerialization.data(withJSONObject: requestData)
@@ -87,6 +132,7 @@ struct WebService {
         var request = URLRequest(url: url.url!)
         request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = jsonData
         
         let (data, _) = try await URLSession.shared.data(for: request)
@@ -100,12 +146,18 @@ struct WebService {
         let endpoint = "\(baseURL)/consulta"
         let url = URLRequest(url: URL(string: endpoint)!)
         
+        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+            print("Token não informado!!!")
+            return nil
+        }
+        
         let appointmentData = ScheduleAppointmentRequest(especialist: specialistId, patient: patientId, date: date)
         let appointmentJson = try JSONEncoder().encode(appointmentData)
         
         var request = URLRequest(url: url.url!)
         request.httpMethod = "POST"
         request.setValue( "application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.httpBody = appointmentJson
         
         print("Appointmente data: ")

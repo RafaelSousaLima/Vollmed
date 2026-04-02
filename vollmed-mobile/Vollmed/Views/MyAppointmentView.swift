@@ -14,8 +14,11 @@ struct MyAppointmentView: View {
     @State private var appointments: [Appointment] = []
     
     func getAllAppointments() async {
+        
+        guard let patientId = UserDefaults.standard.string(forKey: UserDefaultsKeys.id.rawValue) else { return }
+        
         do {
-            appointments = try await service.getAllAppointmentFromPatient(patientId: "4133b2cd-faab-4013-a2dd-e5ffd78bd553")!
+            appointments = try await service.getAllAppointmentFromPatient(patientId: patientId)!
         } catch {
             print("Erro ao buscar consultas do paciente:\(error)")
         }
