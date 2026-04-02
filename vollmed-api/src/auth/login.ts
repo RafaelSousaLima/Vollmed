@@ -32,6 +32,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       auth: true,
       token,
       rota,
+      id,
     });
   }
 };

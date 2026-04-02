@@ -18,7 +18,8 @@ struct SignInView: View {
     func login() async {
         do {
             if let result = try await service.loginRequest(email: email, password: password) {
-                print(result)
+                UserDefaultsHelper.save(value: result.id, key: UserDefaultsKeys.id.rawValue)
+                UserDefaultsHelper.save(value: result.token, key: UserDefaultsKeys.token.rawValue)
             } else {
                 showAlert = true
             }
