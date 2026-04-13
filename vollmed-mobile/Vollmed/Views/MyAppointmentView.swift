@@ -10,15 +10,29 @@ import SwiftUI
 struct MyAppointmentView: View {
     
     let service = WebService()
+    var authManager = AuthenticationManager.shared
     
     @State private var appointments: [Appointment] = []
     
+    func logout() async {
+        do {
+            let logoutSuccessFull = try await service.logouPatient()
+            if logoutSuccessFull {
+                authManager.logout()
+            }
+        } catch {
+            print("Ocorreu um erro no logout: \(error)")
+        }
+    }
+    
     func getAllAppointments() async {
         
-        guard let patientId = UserDefaults.standard.string(forKey: UserDefaultsKeys.id.rawValue) else { return }
+        guard let patientId = authManager.getPatientId() else { return }
         
         do {
-            appointments = try await service.getAllAppointmentFromPatient(patientId: patientId)!
+            if let appointments = try await service.getAllAppointmentFromPatient(patientId: patientId) {
+                self.appointments = appointments
+            }
         } catch {
             print("Erro ao buscar consultas do paciente:\(error)")
         }
@@ -48,6 +62,19 @@ struct MyAppointmentView: View {
         .onAppear() {
             Task {
                 await getAllAppointments()
+            }
+        }.toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    Task {
+                        await logout()
+                    }
+                }, label: {
+                    HStack(spacing: 2) {
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                        Text("Logout")
+                    }
+                })
             }
         }
     }

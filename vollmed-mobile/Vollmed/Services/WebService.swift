@@ -9,6 +9,8 @@ import UIKit
 
 struct WebService {
     
+    let authManager = AuthenticationManager.shared
+    
     let imageCache = NSCache<NSString, UIImage>()
     
     private let baseURL = "http://localhost:3000"
@@ -17,7 +19,7 @@ struct WebService {
         let endpoint = "\(baseURL)/auth/logout"
         let url = URLRequest(url: URL(string: endpoint)!)
         
-        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+        guard let token = authManager.getToken() else {
             print("Token não informado!!!")
             return false
         }
@@ -74,7 +76,7 @@ struct WebService {
         
         let urlRequest = URLRequest(url: URL(string: endpoint)!)
         
-        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+        guard let token = authManager.getToken() else {
             print("Token não informado!!!")
             return nil
         }
@@ -93,7 +95,7 @@ struct WebService {
         
         let url = URLRequest(url: URL(string: endpoint)!)
         
-        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+        guard let token = authManager.getToken() else {
             print("Token não informado!!!")
             return false
         }
@@ -120,7 +122,7 @@ struct WebService {
         
         let url = URLRequest(url: URL(string: endpoint)!)
         
-        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+        guard let token = authManager.getToken() else {
             print("Token não informado!!!")
             return nil
         }
@@ -146,7 +148,7 @@ struct WebService {
         let endpoint = "\(baseURL)/consulta"
         let url = URLRequest(url: URL(string: endpoint)!)
         
-        guard let token = UserDefaultsHelper.get(key: UserDefaultsKeys.token.rawValue) else {
+        guard let token = authManager.getToken() else {
             print("Token não informado!!!")
             return nil
         }

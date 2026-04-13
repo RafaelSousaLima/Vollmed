@@ -13,13 +13,14 @@ struct SignInView: View {
     @State private var password: String = ""
     @State private var showAlert: Bool = false
     
+    @ObservedObject var authManager = AuthenticationManager.shared
+    
     let service = WebService()
     
     func login() async {
         do {
             if let result = try await service.loginRequest(email: email, password: password) {
-                UserDefaultsHelper.save(value: result.id, key: UserDefaultsKeys.id.rawValue)
-                UserDefaultsHelper.save(value: result.token, key: UserDefaultsKeys.token.rawValue)
+                authManager.login(token: result.token, id: result.id)
             } else {
                 showAlert = true
             }
