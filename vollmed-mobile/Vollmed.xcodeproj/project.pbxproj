@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,11 @@
 		DD1D8A092E96AA9A009D70FA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D8A082E96AA9A009D70FA /* SignUpView.swift */; };
 		DD22958D2DF24ACC00AE2576 /* MyAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD22958C2DF24ACC00AE2576 /* MyAppointmentView.swift */; };
 		DD5426E02DF3367700672F6E /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5426DF2DF3367700672F6E /* Appointment.swift */; };
+		DD647FEF2F840A6800E12256 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FED2F840A6800E12256 /* Date+.swift */; };
+		DD647FF02F840A6800E12256 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FEE2F840A6800E12256 /* String+.swift */; };
+		DD647FF22F842AF000E12256 /* KeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FF12F842AF000E12256 /* KeyChainHelper.swift */; };
+		DD647FF72F842EAB00E12256 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FF62F842EAB00E12256 /* AuthenticationManager.swift */; };
+		DD647FFD2F8435A900E12256 /* EnumKeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */; };
 		DD7AE7702F7EEF0F0062AC76 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */; };
 		DD96F3622F158509009B16A9 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F3612F158509009B16A9 /* Login.swift */; };
 		DDB4CF5E2E05BDEF00FC40B6 /* CancelAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */; };
@@ -45,6 +50,11 @@
 		DD1D8A082E96AA9A009D70FA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DD22958C2DF24ACC00AE2576 /* MyAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppointmentView.swift; sourceTree = "<group>"; };
 		DD5426DF2DF3367700672F6E /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		DD647FED2F840A6800E12256 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		DD647FEE2F840A6800E12256 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		DD647FF12F842AF000E12256 /* KeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHelper.swift; sourceTree = "<group>"; };
+		DD647FF62F842EAB00E12256 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumKeyChainHelper.swift; sourceTree = "<group>"; };
 		DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		DD96F3612F158509009B16A9 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAppointmentView.swift; sourceTree = "<group>"; };
@@ -52,10 +62,6 @@
 		DDBA57312E96F7B1007A13B4 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		DDBAFBC32E61F2AE00FC5812 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		DD1BCC0D2DDF4F8400BB6362 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		48539DE62AB0F47C005BD7C9 /* Frameworks */ = {
@@ -107,7 +113,9 @@
 		484BEEFB2AB0F56C0033C07A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */,
 				DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */,
+				DD647FF12F842AF000E12256 /* KeyChainHelper.swift */,
 				484BEEFE2AB0F59D0033C07A /* WebService.swift */,
 			);
 			path = Services;
@@ -132,7 +140,8 @@
 		48539DEB2AB0F47C005BD7C9 /* Vollmed */ = {
 			isa = PBXGroup;
 			children = (
-				DD1BCC0D2DDF4F8400BB6362 /* Extensions */,
+				DD647FFB2F84344A00E12256 /* Extentions */,
+				DD647FFA2F84343200E12256 /* Managers */,
 				484BEEFB2AB0F56C0033C07A /* Services */,
 				484BEEFA2AB0F5680033C07A /* Models */,
 				484BEEF82AB0F55F0033C07A /* Views */,
@@ -152,6 +161,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DD647FFA2F84343200E12256 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DD647FF62F842EAB00E12256 /* AuthenticationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DD647FFB2F84344A00E12256 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				DD647FED2F840A6800E12256 /* Date+.swift */,
+				DD647FEE2F840A6800E12256 /* String+.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,9 +192,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				DD1BCC0D2DDF4F8400BB6362 /* Extensions */,
 			);
 			name = Vollmed;
 			productName = Vollmed;
@@ -237,7 +260,12 @@
 				DDBAFBC42E61F2AE00FC5812 /* SignInView.swift in Sources */,
 				DDBA57322E96F7B1007A13B4 /* Patient.swift in Sources */,
 				484BEF012AB0F6090033C07A /* ButtonView.swift in Sources */,
+				DD647FF22F842AF000E12256 /* KeyChainHelper.swift in Sources */,
+				DD647FF72F842EAB00E12256 /* AuthenticationManager.swift in Sources */,
+				DD647FEF2F840A6800E12256 /* Date+.swift in Sources */,
+				DD647FF02F840A6800E12256 /* String+.swift in Sources */,
 				484BEF032AB0F7080033C07A /* SpecialistCardView.swift in Sources */,
+				DD647FFD2F8435A900E12256 /* EnumKeyChainHelper.swift in Sources */,
 				DD96F3622F158509009B16A9 /* Login.swift in Sources */,
 				484BEEFF2AB0F59D0033C07A /* WebService.swift in Sources */,
 				48539DED2AB0F47C005BD7C9 /* VollmedApp.swift in Sources */,
