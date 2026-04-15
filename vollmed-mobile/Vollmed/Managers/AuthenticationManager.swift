@@ -21,34 +21,22 @@ class AuthenticationManager: ObservableObject {
     
     private func saveToken(token: String) {
         KeyChainHelper.save(value: token, key: TokenKeyChainHelper.token.rawValue)
-        DispatchQueue.main.async {
-            self.token = token
-        }
         self.token = token
     }
     
     private func removeToken() {
         KeyChainHelper.remove(for: TokenKeyChainHelper.token.rawValue)
-        DispatchQueue.main.async {
-            self.token = nil
-        }
         self.token = nil
     }
     
     private func savePatinentID(id: String) {
         KeyChainHelper.save(value: id, key: TokenKeyChainHelper.patientID.rawValue)
-        DispatchQueue.main.async {
-            self.patientId = id
-        }
         self.patientId = id
     }
     
     private func removePatientID() {
         KeyChainHelper.remove(for: TokenKeyChainHelper.patientID.rawValue)
-        DispatchQueue.main.async {
-            self.patientId = nil
-        }
-        self.token = nil
+        self.patientId = nil
     }
     
     func getPatientId() -> String? {
