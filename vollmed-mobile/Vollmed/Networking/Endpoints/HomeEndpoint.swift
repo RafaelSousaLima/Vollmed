@@ -15,7 +15,7 @@ extension HomeEndpoint: Endpoint {
     var path: String {
         switch self {
         case .getAllSpecialists:
-            return "/specialists"
+            return "/especialista"
         }
     }
     

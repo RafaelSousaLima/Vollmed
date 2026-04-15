@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @ObservedObject var authManager = AuthenticationManager.shared
     
+    var viewModel: ContentViewModel = ContentViewModel(authService: AuthenticationService())
+    
     var body: some View {
         
         if authManager.getToken() == nil {
@@ -39,7 +41,7 @@ struct ContentView: View {
         ToolbarItem(placement: .topBarTrailing) {
             Button(action: {
                 Task {
-                    authManager.logout()
+                    await viewModel.logout()
                 }
             }, label: {
                 HStack(spacing: 2) {
