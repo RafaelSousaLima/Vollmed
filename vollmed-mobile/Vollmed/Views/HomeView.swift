@@ -2,7 +2,7 @@
 //  HomeView.swift
 //  Vollmed
 //
-//  Created by Giovanna Moeller on 12/09/23.
+//  Created by Rafael Lima on 22/05/25.
 //
 
 import SwiftUI
@@ -10,30 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     let service = WebService()
-    var authManager = AuthenticationManager.shared
+    var viewModel: HomeViewModel = HomeViewModel(service: HomeNetworkingService())
     
     @State var specialists: [Specialist] = []
-    
-    func logout() async {
-        do {
-            let logoutSuccessFull = try await service.logouPatient()
-            if logoutSuccessFull {
-                authManager.logout()
-            }
-        } catch {
-            print("Ocorreu um erro no logout: \(error)")
-        }
-    }
-    
-    func getSpecialists() async {
-        do {
-            if let specialists = try await service.getAllSpecialists() {
-                self.specialists = specialists
-            }
-        } catch {
-            print (error.localizedDescription)
-        }
-    }
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -63,20 +42,12 @@ struct HomeView: View {
         .padding(.top)
         .onAppear {
             Task {
-                await getSpecialists()
-            }
-        }.toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    Task {
-                        await logout()
-                    }
-                }, label: {
-                    HStack(spacing: 2) {
-                        Image(systemName: "rectangle.portrait.and.arrow.right")
-                        Text("Logout")
-                    }
-                })
+                do {
+                    guard let response = try await viewModel.getSpecialists() else { return }
+                    self.specialists = response
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }

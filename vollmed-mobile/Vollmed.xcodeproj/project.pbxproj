@@ -27,6 +27,16 @@
 		DD647FF72F842EAB00E12256 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FF62F842EAB00E12256 /* AuthenticationManager.swift */; };
 		DD647FFD2F8435A900E12256 /* EnumKeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */; };
 		DD7AE7702F7EEF0F0062AC76 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */; };
+		DD890E002F8D7EF600375001 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD890DFF2F8D7EF600375001 /* ContentViewModel.swift */; };
+		DD93F5642F8D2634000246EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5632F8D262A000246EF /* HomeViewModel.swift */; };
+		DD93F56A2F8D374D000246EF /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5692F8D3747000246EF /* Endpoint.swift */; };
+		DD93F56C2F8D38C2000246EF /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F56B2F8D38BD000246EF /* RequestMethod.swift */; };
+		DD93F56E2F8D391D000246EF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F56D2F8D3914000246EF /* RequestError.swift */; };
+		DD93F5702F8D3AC9000246EF /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F56F2F8D3ABF000246EF /* HTTPClient.swift */; };
+		DD93F5742F8D5D1F000246EF /* HomeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5732F8D5D19000246EF /* HomeEndpoint.swift */; };
+		DD93F5762F8D65F9000246EF /* HomeNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5752F8D65E8000246EF /* HomeNetworkingService.swift */; };
+		DD93F5782F8D6A85000246EF /* AuthenticationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5772F8D6A85000246EF /* AuthenticationEndpoint.swift */; };
+		DD93F57A2F8D6C09000246EF /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5792F8D6C09000246EF /* AuthenticationService.swift */; };
 		DD96F3622F158509009B16A9 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F3612F158509009B16A9 /* Login.swift */; };
 		DDB4CF5E2E05BDEF00FC40B6 /* CancelAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */; };
 		DDBA57302E96EC37007A13B4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBA572F2E96EC37007A13B4 /* InputView.swift */; };
@@ -56,6 +66,16 @@
 		DD647FF62F842EAB00E12256 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumKeyChainHelper.swift; sourceTree = "<group>"; };
 		DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		DD890DFF2F8D7EF600375001 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		DD93F5632F8D262A000246EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DD93F5692F8D3747000246EF /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		DD93F56B2F8D38BD000246EF /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		DD93F56D2F8D3914000246EF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		DD93F56F2F8D3ABF000246EF /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		DD93F5732F8D5D19000246EF /* HomeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoint.swift; sourceTree = "<group>"; };
+		DD93F5752F8D65E8000246EF /* HomeNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkingService.swift; sourceTree = "<group>"; };
+		DD93F5772F8D6A85000246EF /* AuthenticationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndpoint.swift; sourceTree = "<group>"; };
+		DD93F5792F8D6C09000246EF /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		DD96F3612F158509009B16A9 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DDB4CF5D2E05BDEF00FC40B6 /* CancelAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAppointmentView.swift; sourceTree = "<group>"; };
 		DDBA572F2E96EC37007A13B4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -140,6 +160,8 @@
 		48539DEB2AB0F47C005BD7C9 /* Vollmed */ = {
 			isa = PBXGroup;
 			children = (
+				DD93F5652F8D3708000246EF /* Networking */,
+				DD93F5622F8D2615000246EF /* ViewModels */,
 				DD647FFB2F84344A00E12256 /* Extentions */,
 				DD647FFA2F84343200E12256 /* Managers */,
 				484BEEFB2AB0F56C0033C07A /* Services */,
@@ -178,6 +200,54 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
+		DD93F5622F8D2615000246EF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD93F5632F8D262A000246EF /* HomeViewModel.swift */,
+				DD890DFF2F8D7EF600375001 /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DD93F5652F8D3708000246EF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DD93F5682F8D3728000246EF /* Services */,
+				DD93F5672F8D371F000246EF /* Endpoints */,
+				DD93F5662F8D3717000246EF /* Base */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		DD93F5662F8D3717000246EF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DD93F56F2F8D3ABF000246EF /* HTTPClient.swift */,
+				DD93F56D2F8D3914000246EF /* RequestError.swift */,
+				DD93F56B2F8D38BD000246EF /* RequestMethod.swift */,
+				DD93F5692F8D3747000246EF /* Endpoint.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DD93F5672F8D371F000246EF /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				DD93F5732F8D5D19000246EF /* HomeEndpoint.swift */,
+				DD93F5772F8D6A85000246EF /* AuthenticationEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		DD93F5682F8D3728000246EF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD93F5752F8D65E8000246EF /* HomeNetworkingService.swift */,
+				DD93F5792F8D6C09000246EF /* AuthenticationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,7 +276,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					48539DE82AB0F47C005BD7C9 = {
 						CreatedOnToolsVersion = 15.0;
@@ -248,15 +318,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD93F56C2F8D38C2000246EF /* RequestMethod.swift in Sources */,
 				DD5426E02DF3367700672F6E /* Appointment.swift in Sources */,
 				DD1BCC132DDF55A800BB6362 /* ScheduleAppointment.swift in Sources */,
 				48539DEF2AB0F47C005BD7C9 /* ContentView.swift in Sources */,
 				DD22958D2DF24ACC00AE2576 /* MyAppointmentView.swift in Sources */,
 				DDB4CF5E2E05BDEF00FC40B6 /* CancelAppointmentView.swift in Sources */,
 				484BEF052AB0F7970033C07A /* HomeView.swift in Sources */,
+				DD93F57A2F8D6C09000246EF /* AuthenticationService.swift in Sources */,
 				DD7AE7702F7EEF0F0062AC76 /* UserDefaultsHelper.swift in Sources */,
+				DD93F56E2F8D391D000246EF /* RequestError.swift in Sources */,
 				DDBA57302E96EC37007A13B4 /* InputView.swift in Sources */,
+				DD93F5702F8D3AC9000246EF /* HTTPClient.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
+				DD93F5782F8D6A85000246EF /* AuthenticationEndpoint.swift in Sources */,
 				DDBAFBC42E61F2AE00FC5812 /* SignInView.swift in Sources */,
 				DDBA57322E96F7B1007A13B4 /* Patient.swift in Sources */,
 				484BEF012AB0F6090033C07A /* ButtonView.swift in Sources */,
@@ -267,10 +342,15 @@
 				484BEF032AB0F7080033C07A /* SpecialistCardView.swift in Sources */,
 				DD647FFD2F8435A900E12256 /* EnumKeyChainHelper.swift in Sources */,
 				DD96F3622F158509009B16A9 /* Login.swift in Sources */,
+				DD93F5642F8D2634000246EF /* HomeViewModel.swift in Sources */,
 				484BEEFF2AB0F59D0033C07A /* WebService.swift in Sources */,
+				DD93F5742F8D5D1F000246EF /* HomeEndpoint.swift in Sources */,
 				48539DED2AB0F47C005BD7C9 /* VollmedApp.swift in Sources */,
 				DD1D8A092E96AA9A009D70FA /* SignUpView.swift in Sources */,
+				DD890E002F8D7EF600375001 /* ContentViewModel.swift in Sources */,
 				DD1BCC0C2DDF44AC00BB6362 /* ScheduleAppointmentView.swift in Sources */,
+				DD93F5762F8D65F9000246EF /* HomeNetworkingService.swift in Sources */,
+				DD93F56A2F8D374D000246EF /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +415,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -391,6 +472,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

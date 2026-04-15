@@ -29,9 +29,28 @@ struct ContentView: View {
                 }.tabItem {
                     Label(title: {Text("Minhas consultas")}, icon: {Image(systemName: "calendar")})
                 }
+            }.toolbar{
+                toolbar
             }
         }
     }
+    
+    var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button(action: {
+                Task {
+                    authManager.logout()
+                }
+            }, label: {
+                HStack(spacing: 2) {
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                    Text("Logout")
+                }
+            })
+        }
+    }
+    
+    
 }
 
 #Preview {

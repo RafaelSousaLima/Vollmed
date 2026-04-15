@@ -42,6 +42,11 @@ struct SignInView: View {
                 .bold()
                 .foregroundStyle(.accent)
             
+            Text("Preencha para acessar sua conta.")
+                .font(.title3)
+                .foregroundStyle(.gray)
+                .padding(.bottom)
+            
             Text("Email")
                 .font(.title3)
                 .bold()
