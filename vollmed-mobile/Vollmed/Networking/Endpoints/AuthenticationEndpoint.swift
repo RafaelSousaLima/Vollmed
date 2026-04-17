@@ -9,6 +9,7 @@ import Foundation
 
 enum AuthenticationEndpoint {
     case logout
+    case login(loginRequest: LoginRequest)
 }
 
 extension AuthenticationEndpoint: Endpoint {
@@ -16,12 +17,14 @@ extension AuthenticationEndpoint: Endpoint {
         switch self {
         case .logout:
             return "/auth/logout"
+        case .login:
+            return "/auth/login"
         }
     }
     
     var method: RequestMethod {
         switch self {
-        case .logout:
+        case .logout, .login:
             return .post
         }
     }
@@ -36,13 +39,26 @@ extension AuthenticationEndpoint: Endpoint {
                 "Authorization": "Bearer \(token)",
                 "Content-Type": "application/json"
             ]
+        case .login:
+            return [
+                "Content-Type": "application/json"
+            ]
         }
     }
     
-    var body: [String : String]? {
+    var body: Data? {
         switch self {
         case .logout:
             return nil
+        case .login(let loginRequest):
+            do {
+                return try JSONEncoder().encode(loginRequest)
+            } catch {
+                #if DEBUG
+                print("[AuthenticationEndpoint] Failed to encode LoginRequest: \(error)")
+                #endif
+                return nil
+            }
         }
     }
     
