@@ -15,20 +15,7 @@ struct SignInView: View {
     
     @ObservedObject var authManager = AuthenticationManager.shared
     
-    let service = WebService()
-    
-    func login() async {
-        do {
-            if let result = try await service.loginRequest(email: email, password: password) {
-                authManager.login(token: result.token, id: result.id)
-            } else {
-                showAlert = true
-            }
-        } catch {
-            showAlert = true
-            print("Ocorreu um erro no login: \(error)")
-        }
-    }
+    var viewModel: SignInViewModel = .init(authService: AuthenticationService())
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16.0) {
@@ -70,7 +57,7 @@ struct SignInView: View {
             
             Button(action: {
                 Task {
-                    await login()
+                    await viewModel.login(email: email, password: password)
                 }
             }, label: {
                 ButtonView(text: "Login")

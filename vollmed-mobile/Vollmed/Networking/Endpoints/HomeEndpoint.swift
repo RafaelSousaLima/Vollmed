@@ -33,7 +33,7 @@ extension HomeEndpoint: Endpoint {
         }
     }
     
-    var body: [String : String]? {
+    var body: Data? {
         switch self {
         case .getAllSpecialists:
             return nil
