@@ -16,14 +16,16 @@ struct SignInViewModel {
         self.authService = authService
     }
     
-    func login(email: String, password: String) async {
+    func login(email: String, password: String) async throws -> Bool {
         let loginRequest = LoginRequest(email: email, password: password)
         let response = await authService.login(loginRequest: loginRequest)
         switch response {
         case .success(let response):
             authManager.login(token: response!.token, id: response!.id)
+            return true
         case .failure(let error):
             print(error.localizedDescription)
+            throw error
         }
     }
     
