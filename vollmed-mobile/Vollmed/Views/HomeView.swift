@@ -53,7 +53,7 @@ struct HomeView: View {
                     sleep(4)
                     guard let response = try await viewModel.getSpecialists() else { return }
                     self.specialists = response
-//                    isFetchingData = false
+                    isFetchingData = false
                 } catch {
                     isFetchingData = false
                     isShowingSnackBar = true
