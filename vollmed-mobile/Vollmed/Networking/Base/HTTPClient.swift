@@ -32,12 +32,11 @@ extension HTTPClient {
         }
         
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await URLSession.shared.data(for: request,delegate: nil)
             
             guard let response = response as? HTTPURLResponse else {
                 return .failure(RequestError.noResponse)
             }
-            
             switch response.statusCode {
             case 200...299:
                 guard let responseModel = responseModel else {
@@ -48,14 +47,16 @@ extension HTTPClient {
                     return .failure(.decodeFailed)
                 }
                 return .success(decodedResponse)
-            case 401:
-                return .failure(.unauthorized)
+            case 400:
+                let errorResponse = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+                return .failure(.custom(error: errorResponse))
             default:
                 print(response.description)
                 return .failure(.unknown)
             }
             
         } catch {
+            print(error.localizedDescription)
             return .failure(.unknown)
         }
         

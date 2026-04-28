@@ -15,45 +15,45 @@ struct WebService {
     
     private let baseURL = "http://localhost:3000"
     
-    func logouPatient() async throws -> Bool {
-        let endpoint = "\(baseURL)/auth/logout"
-        let url = URLRequest(url: URL(string: endpoint)!)
-        
-        guard let token = authManager.getToken() else {
-            print("Token não informado!!!")
-            return false
-        }
-        
-        var request = URLRequest(url: url.url!)
-        request.httpMethod = "POST"
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        let (_, response) = try await URLSession.shared.data(for: request)
-        
-        if let httpResponse = response as? HTTPURLResponse,
-           httpResponse.statusCode == 200 {
-            return true
-        }
-        return false
-    }
-    
-    func loginRequest(email: String, password: String) async throws -> LoginResponse? {
-        let endpoint = "\(baseURL)/auth/login"
-        let url = URLRequest(url: URL(string: endpoint)!)
-        
-        let loginRequest = LoginRequest(email: email, password: password)
-        
-        let jsonData = try JSONEncoder().encode(loginRequest)
-        
-        var request = URLRequest(url: url.url!)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
-        
-        let (data, _) = try await URLSession.shared.data(for: request)
-        let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
-        return loginResponse
-    }
+//    func logouPatient() async throws -> Bool {
+//        let endpoint = "\(baseURL)/auth/logout"
+//        let url = URLRequest(url: URL(string: endpoint)!)
+//        
+//        guard let token = authManager.getToken() else {
+//            print("Token não informado!!!")
+//            return false
+//        }
+//        
+//        var request = URLRequest(url: url.url!)
+//        request.httpMethod = "POST"
+//        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        
+//        let (_, response) = try await URLSession.shared.data(for: request)
+//        
+//        if let httpResponse = response as? HTTPURLResponse,
+//           httpResponse.statusCode == 200 {
+//            return true
+//        }
+//        return false
+//    }
+//    
+//    func loginRequest(email: String, password: String) async throws -> LoginResponse? {
+//        let endpoint = "\(baseURL)/auth/login"
+//        let url = URLRequest(url: URL(string: endpoint)!)
+//        
+//        let loginRequest = LoginRequest(email: email, password: password)
+//        
+//        let jsonData = try JSONEncoder().encode(loginRequest)
+//        
+//        var request = URLRequest(url: url.url!)
+//        request.httpMethod = "POST"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = jsonData
+//        
+//        let (data, _) = try await URLSession.shared.data(for: request)
+//        let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+//        return loginResponse
+//    }
     
     func registerPatient(patient: Patient) async throws -> Patient? {
         let endpoint = "\(baseURL)/paciente"

@@ -29,6 +29,10 @@
 		DD647FFD2F8435A900E12256 /* EnumKeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */; };
 		DD7AE7702F7EEF0F0062AC76 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */; };
 		DD890E002F8D7EF600375001 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD890DFF2F8D7EF600375001 /* ContentViewModel.swift */; };
+		DD9004202F9FAC3900337D13 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90041E2F9FAC2E00337D13 /* SnackBarErrorView.swift */; };
+		DD9004232F9FC76B00337D13 /* UIAplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9004222F9FC76B00337D13 /* UIAplication+.swift */; };
+		DD9004262FA0C30100337D13 /* SkaletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9004252FA0C30100337D13 /* SkaletonView.swift */; };
+		DD9004282FA0C76300337D13 /* RedactedAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9004272FA0C76300337D13 /* RedactedAnimationModifier.swift */; };
 		DD93F5642F8D2634000246EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5632F8D262A000246EF /* HomeViewModel.swift */; };
 		DD93F56A2F8D374D000246EF /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F5692F8D3747000246EF /* Endpoint.swift */; };
 		DD93F56C2F8D38C2000246EF /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93F56B2F8D38BD000246EF /* RequestMethod.swift */; };
@@ -69,6 +73,10 @@
 		DD647FFC2F8435A900E12256 /* EnumKeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumKeyChainHelper.swift; sourceTree = "<group>"; };
 		DD7AE76F2F7EEF030062AC76 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		DD890DFF2F8D7EF600375001 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		DD90041E2F9FAC2E00337D13 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
+		DD9004222F9FC76B00337D13 /* UIAplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+.swift"; sourceTree = "<group>"; };
+		DD9004252FA0C30100337D13 /* SkaletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkaletonView.swift; sourceTree = "<group>"; };
+		DD9004272FA0C76300337D13 /* RedactedAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedAnimationModifier.swift; sourceTree = "<group>"; };
 		DD93F5632F8D262A000246EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DD93F5692F8D3747000246EF /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		DD93F56B2F8D38BD000246EF /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -99,6 +107,8 @@
 		484BEEF82AB0F55F0033C07A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD9004242FA0C2E400337D13 /* SkaletonView */,
+				DD9004212F9FC67E00337D13 /* SnackBarView */,
 				484BEEF92AB0F5630033C07A /* Components */,
 				484BEF042AB0F7970033C07A /* HomeView.swift */,
 				DD1BCC0B2DDF44AC00BB6362 /* ScheduleAppointmentView.swift */,
@@ -198,8 +208,26 @@
 			children = (
 				DD647FED2F840A6800E12256 /* Date+.swift */,
 				DD647FEE2F840A6800E12256 /* String+.swift */,
+				DD9004222F9FC76B00337D13 /* UIAplication+.swift */,
+				DD9004272FA0C76300337D13 /* RedactedAnimationModifier.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		DD9004212F9FC67E00337D13 /* SnackBarView */ = {
+			isa = PBXGroup;
+			children = (
+				DD90041E2F9FAC2E00337D13 /* SnackBarErrorView.swift */,
+			);
+			path = SnackBarView;
+			sourceTree = "<group>";
+		};
+		DD9004242FA0C2E400337D13 /* SkaletonView */ = {
+			isa = PBXGroup;
+			children = (
+				DD9004252FA0C30100337D13 /* SkaletonView.swift */,
+			);
+			path = SkaletonView;
 			sourceTree = "<group>";
 		};
 		DD93F5622F8D2615000246EF /* ViewModels */ = {
@@ -324,6 +352,7 @@
 				DD93F56C2F8D38C2000246EF /* RequestMethod.swift in Sources */,
 				DD5426E02DF3367700672F6E /* Appointment.swift in Sources */,
 				DD1BCC132DDF55A800BB6362 /* ScheduleAppointment.swift in Sources */,
+				DD9004232F9FC76B00337D13 /* UIAplication+.swift in Sources */,
 				48539DEF2AB0F47C005BD7C9 /* ContentView.swift in Sources */,
 				DD22958D2DF24ACC00AE2576 /* MyAppointmentView.swift in Sources */,
 				DDB4CF5E2E05BDEF00FC40B6 /* CancelAppointmentView.swift in Sources */,
@@ -331,6 +360,7 @@
 				DD93F57A2F8D6C09000246EF /* AuthenticationService.swift in Sources */,
 				DD7AE7702F7EEF0F0062AC76 /* UserDefaultsHelper.swift in Sources */,
 				DD93F56E2F8D391D000246EF /* RequestError.swift in Sources */,
+				DD9004282FA0C76300337D13 /* RedactedAnimationModifier.swift in Sources */,
 				DDBA57302E96EC37007A13B4 /* InputView.swift in Sources */,
 				DD93F5702F8D3AC9000246EF /* HTTPClient.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
@@ -352,9 +382,11 @@
 				48539DED2AB0F47C005BD7C9 /* VollmedApp.swift in Sources */,
 				DD1D8A092E96AA9A009D70FA /* SignUpView.swift in Sources */,
 				DD890E002F8D7EF600375001 /* ContentViewModel.swift in Sources */,
+				DD9004262FA0C30100337D13 /* SkaletonView.swift in Sources */,
 				DD1BCC0C2DDF44AC00BB6362 /* ScheduleAppointmentView.swift in Sources */,
 				DD93F5762F8D65F9000246EF /* HomeNetworkingService.swift in Sources */,
 				DD93F56A2F8D374D000246EF /* Endpoint.swift in Sources */,
+				DD9004202F9FAC3900337D13 /* SnackBarErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

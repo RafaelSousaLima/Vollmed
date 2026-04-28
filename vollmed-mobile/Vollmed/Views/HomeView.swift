@@ -12,7 +12,10 @@ struct HomeView: View {
     let service = WebService()
     var viewModel: HomeViewModel = HomeViewModel(service: HomeNetworkingService())
     
-    @State var specialists: [Specialist] = []
+    @State private var isFetchingData = true
+    @State private var specialists: [Specialist] = []
+    @State private var isShowingSnackBar = false
+    @State private var errorMessage = ""
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -32,9 +35,13 @@ struct HomeView: View {
                     .foregroundStyle(.accent)
                     .multilineTextAlignment(.center)
                     .padding(.vertical, 16)
-                ForEach(specialists) { specialist in
-                    SpecialistCardView(specialist: specialist)
-                        .padding(.bottom, 8)
+                if isFetchingData {
+                    SkaletonView()
+                } else {
+                    ForEach(specialists) { specialist in
+                        SpecialistCardView(specialist: specialist)
+                            .padding(.bottom, 8)
+                    }
                 }
             }
             .padding(.horizontal)
@@ -43,10 +50,15 @@ struct HomeView: View {
         .onAppear {
             Task {
                 do {
+                    sleep(4)
                     guard let response = try await viewModel.getSpecialists() else { return }
                     self.specialists = response
+//                    isFetchingData = false
                 } catch {
-                    print(error.localizedDescription)
+                    isFetchingData = false
+                    isShowingSnackBar = true
+                    let errorType = error as? RequestError
+                    errorMessage = errorType?.customMessage ?? "Ops, ocorreu um erro"
                 }
             }
         }

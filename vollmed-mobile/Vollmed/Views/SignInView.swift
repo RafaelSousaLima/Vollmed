@@ -15,6 +15,9 @@ struct SignInView: View {
     
     @ObservedObject var authManager = AuthenticationManager.shared
     
+    @State private var isShowingSnackBar = false
+    @State private var errorMessage = ""
+    
     var viewModel: SignInViewModel = .init(authService: AuthenticationService())
     
     var body: some View {
@@ -57,7 +60,13 @@ struct SignInView: View {
             
             Button(action: {
                 Task {
-                    await viewModel.login(email: email, password: password)
+                    do {
+                        _ = try await viewModel.login(email: email, password: password)
+                    } catch {
+                        isShowingSnackBar = true
+                        let errorType = error as? RequestError
+                        errorMessage = errorType?.customMessage ?? "Ops, ocorreu um erro"
+                    }
                 }
             }, label: {
                 ButtonView(text: "Login")
@@ -80,6 +89,9 @@ struct SignInView: View {
             })
         } message: {
             Text("Houve um erro ao entrar na sua conta. Por favor tente novamente.")
+        }
+        if isShowingSnackBar {
+            SnackBarErrorView(isShowing: $isShowingSnackBar, message: errorMessage)
         }
     }
 }
